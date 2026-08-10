@@ -16,6 +16,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ночная Старая Купавна: фонарь у пятиэтажек в тумане">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Олег Иванцов">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,6 +30,7 @@
       "@id": "#oleg-ivantsov",
       "name": "Олег Алексеевич Иванцов",
       "alternateName": "Олег Иванцов",
+      "description": "Олег Иванцов (1993–2024) – музыкант, поэт и писатель из подмосковной Старой Купавны, основатель рок-группы «Квартет имени Достоевского» и экспериментального проекта Cupastate.",
       "birthDate": "1993-07-26",
       "deathDate": "2024-08-22",
       "birthPlace": {
@@ -36,10 +39,12 @@
         "address": { "@type": "PostalAddress", "addressRegion": "Московская область", "addressCountry": "RU" }
       },
       "jobTitle": "Музыкант, поэт, писатель",
-      "memberOf": { "@id": "#kvartet-dostoevskogo" },
+      "memberOf": [ { "@id": "#kvartet-dostoevskogo" }, { "@id": "#cupastate" } ],
       "sameAs": [
         "https://music.yandex.ru/artist/4316479",
         "https://music.yandex.ru/artist/6334778",
+        "https://www.litres.ru/author/oleg-ivancov/",
+        "https://samolit.com/authors/5117",
         "https://t.me/moscow_petushky"
       ]
     },
@@ -48,15 +53,40 @@
       "@id": "#kvartet-dostoevskogo",
       "name": "Квартет имени Достоевского",
       "alternateName": "Квартет им. Достоевского",
+      "genre": "рок",
       "foundingDate": "2014",
+      "foundingLocation": { "@type": "Place", "name": "Старая Купавна" },
       "founder": { "@id": "#oleg-ivantsov" },
+      "member": [
+        { "@type": "Person", "name": "Олег Иванцов" },
+        { "@type": "Person", "name": "Родион Иконников" },
+        { "@type": "Person", "name": "Роман Zest" },
+        { "@type": "Person", "name": "Дима Сорокин" },
+        { "@type": "Person", "name": "Владислав Захаров" }
+      ],
       "album": [
         { "@type": "MusicAlbum", "name": "Кризис жанра", "datePublished": "2016", "url": "https://music.yandex.ru/album/12746327" },
         { "@type": "MusicAlbum", "name": "Пр-д Текстильщиков", "datePublished": "2017", "url": "https://music.yandex.ru/album/12761075" },
         { "@type": "MusicAlbum", "name": "Судьба человека", "datePublished": "2018", "url": "https://music.yandex.ru/album/5638825" }
       ],
       "sameAs": [ "https://music.yandex.ru/artist/4316479" ]
-    }
+    },
+    {
+      "@type": "MusicGroup",
+      "@id": "#cupastate",
+      "name": "Cupastate",
+      "genre": "экспериментальная музыка",
+      "foundingLocation": { "@type": "Place", "name": "Старая Купавна" },
+      "founder": { "@id": "#oleg-ivantsov" },
+      "album": [
+        { "@type": "MusicAlbum", "name": "Ленина, 48", "datePublished": "2020", "url": "https://music.yandex.ru/album/9705723" }
+      ],
+      "sameAs": [ "https://music.yandex.ru/artist/6334778" ]
+    },
+    { "@type": "Book", "name": "Блюз", "author": { "@id": "#oleg-ivantsov" }, "inLanguage": "ru", "url": "https://www.litres.ru/book/oleg-ivancov/bluz-71448163/", "sameAs": "https://samolit.com/books/7369" },
+    { "@type": "Book", "name": "Дом, где весело и страшно", "author": { "@id": "#oleg-ivantsov" }, "inLanguage": "ru", "url": "https://www.litres.ru/book/oleg-ivancov/dom-gde-veselo-i-strashno-71448148/", "sameAs": "https://samolit.com/books/7355" },
+    { "@type": "Book", "name": "Эшафот", "author": { "@id": "#oleg-ivantsov" }, "inLanguage": "ru", "url": "https://samolit.com/books/7343" },
+    { "@type": "Book", "name": "Иллюминат", "author": { "@id": "#oleg-ivantsov" }, "inLanguage": "ru", "url": "https://www.litres.ru/book/oleg-ivancov/illuminat-71451820/", "sameAs": "https://samolit.com/books/7438" }
   ]
 }
 </script>
