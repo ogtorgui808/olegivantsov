@@ -19,4 +19,6 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
+Disallow: /preview.html
+
 Sitemap: https://www.olegivantsov.com/sitemap.xml
