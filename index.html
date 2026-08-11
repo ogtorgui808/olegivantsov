@@ -38,6 +38,7 @@
         "name": "Старая Купавна",
         "address": { "@type": "PostalAddress", "addressRegion": "Московская область", "addressCountry": "RU" }
       },
+      "image": "https://www.olegivantsov.com/photos/05-portret.jpg",
       "jobTitle": "Музыкант, поэт, писатель",
       "memberOf": [ { "@id": "#kvartet-dostoevskogo" }, { "@id": "#cupastate" } ],
       "sameAs": [
@@ -172,6 +173,30 @@
   @container (max-width:640px){.two-col{grid-template-columns:1fr}}
   .photo-slot{border:1px dashed var(--line);border-radius:12px;display:none;align-items:center;justify-content:center;min-height:320px;color:var(--dim);font-family:var(--font-body);font-size:14px}
 
+  /* ---------- ГАЛЕРЕЯ ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .shot{margin:0}
+  .shot a{display:block;border-radius:14px;overflow:hidden;box-shadow:var(--ring);background:var(--panel);
+    text-decoration:none;transition:box-shadow .2s ease-out,scale .2s ease-out}
+  .shot a:hover{box-shadow:var(--ring-hover);scale:1.012}
+  .shot a:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
+  .shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+  .shot figcaption{margin-top:9px;font-family:var(--font-body);font-size:14px;color:var(--muted)}
+
+  /* лайтбокс на CSS, без JS */
+  .lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+    background:rgba(10,8,14,.94);padding:24px;opacity:0;visibility:hidden;transition:opacity .2s ease-out,visibility .2s}
+  .lightbox:target{opacity:1;visibility:visible}
+  .lightbox img{max-width:min(1200px,94vw);max-height:82vh;width:auto;height:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .lightbox .cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;
+    font-family:var(--font-body);font-size:15px;color:var(--muted);padding-inline:24px}
+  .lightbox .close{position:absolute;inset:0;z-index:-1}
+  .lightbox .x{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1;
+    color:var(--text);background:rgba(255,255,255,.08);text-decoration:none}
+  .lightbox .x:hover{background:var(--accent);color:#fff}
+  @media (prefers-reduced-motion: reduce){.lightbox{transition:none}.shot a{transition:none}}
+
   /* ---------- TIMELINE ---------- */
   .timeline{list-style:none;position:relative;margin-top:8px}
   .timeline::before{content:'';position:absolute;inset-inline-start:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent) 0%,var(--line) 30%,var(--line) 100%)}
@@ -240,7 +265,7 @@
     <div class="hero-links">
       <a class="btn primary" href="#music">Слушать музыку</a>
       <a class="btn" href="#bio">Биография</a>
-      <a class="btn" href="#bio">Фото/Видео</a>
+      <a class="btn" href="#photo">Фото/Видео</a>
     </div>
   </div>
 </header>
@@ -265,6 +290,65 @@
     <!-- Место под фотографии: когда будут готовы, поменяйте display:none на flex в .photo-slot
          и вставьте <img src="..." alt="Олег Иванцов"> внутрь -->
     <div class="photo-slot">Фотографии Олега – скоро</div>
+  </div>
+</section>
+
+<!-- ============ ФОТО ============ -->
+<section id="photo">
+  <div class="wrap">
+    <p class="kicker">Фотографии</p>
+    <h2>Олег Иванцов в фотографиях</h2>
+    <p>Снимки из семейного архива и со сцены – от Старой Купавны и первых концертов до последних лет.</p>
+    <div class="gallery">
+      <figure class="shot">
+        <a href="#ph1" aria-label="Открыть фото: С родителями"><img src="photos/01-detstvo-s-roditelyami.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов младенцем на руках у родителей, 1993 год"></a>
+        <figcaption>С родителями</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph2" aria-label="Открыть фото: Дома в Старой Купавне"><img src="photos/02-detstvo-doma.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов в детстве играет дома на ковре"></a>
+        <figcaption>Дома в Старой Купавне</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph3" aria-label="Открыть фото: Вдвоём в поле"><img src="photos/03-vdvoem-v-pole.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов с музыкантом в поле, чёрно-белое фото"></a>
+        <figcaption>Вдвоём в поле</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph4" aria-label="Открыть фото: «Квартет имени Достоевского»"><img src="photos/04-kvartet.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Группа «Квартет имени Достоевского» в полном составе"></a>
+        <figcaption>«Квартет имени Достоевского»</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph5" aria-label="Открыть фото: Портрет"><img src="photos/05-portret.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Портрет Олега Иванцова, чёрно-белое фото"></a>
+        <figcaption>Портрет</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph6" aria-label="Открыть фото: Вокал и гитара"><img src="photos/06-vokal-i-gitara.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов поёт с гитарой на сцене"></a>
+        <figcaption>Вокал и гитара</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph7" aria-label="Открыть фото: Концерт"><img src="photos/07-koncert-fioletovyy-svet.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов на сцене в фиолетовом свете"></a>
+        <figcaption>Концерт</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph8" aria-label="Открыть фото: У микрофона"><img src="photos/08-u-mikrofona.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов поёт у микрофона на концерте"></a>
+        <figcaption>У микрофона</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph9" aria-label="Открыть фото: Вдвоём на сцене"><img src="photos/09-vdvoem-na-scene.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов с гитаристом на сцене"></a>
+        <figcaption>Вдвоём на сцене</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph10" aria-label="Открыть фото: Профиль"><img src="photos/10-profil.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов в профиль, съёмка последних лет"></a>
+        <figcaption>Профиль</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph11" aria-label="Открыть фото: В дверном проёме"><img src="photos/11-v-dvernom-proeme.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов в дверном проёме старого дома"></a>
+        <figcaption>В дверном проёме</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="#ph12" aria-label="Открыть фото: У стены"><img src="photos/12-u-steny.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Олег Иванцов у бетонной стены с табличкой"></a>
+        <figcaption>У стены</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -418,6 +502,79 @@
     <span>Сайт сделан друзьями и слушателями</span>
   </div>
 </footer>
+
+<div class="lightbox" id="ph1" role="dialog" aria-label="С родителями">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/01-detstvo-s-roditelyami.jpg" width="1600" height="900" alt="Олег Иванцов младенцем на руках у родителей, 1993 год">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">С родителями</p>
+</div>
+<div class="lightbox" id="ph2" role="dialog" aria-label="Дома в Старой Купавне">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/02-detstvo-doma.jpg" width="1600" height="900" alt="Олег Иванцов в детстве играет дома на ковре">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">Дома в Старой Купавне</p>
+</div>
+<div class="lightbox" id="ph3" role="dialog" aria-label="Вдвоём в поле">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/03-vdvoem-v-pole.jpg" width="1600" height="900" alt="Олег Иванцов с музыкантом в поле, чёрно-белое фото">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">Вдвоём в поле</p>
+</div>
+<div class="lightbox" id="ph4" role="dialog" aria-label="«Квартет имени Достоевского»">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/04-kvartet.jpg" width="1600" height="900" alt="Группа «Квартет имени Достоевского» в полном составе">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">«Квартет имени Достоевского»</p>
+</div>
+<div class="lightbox" id="ph5" role="dialog" aria-label="Портрет">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/05-portret.jpg" width="1600" height="900" alt="Портрет Олега Иванцова, чёрно-белое фото">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">Портрет</p>
+</div>
+<div class="lightbox" id="ph6" role="dialog" aria-label="Вокал и гитара">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/06-vokal-i-gitara.jpg" width="1600" height="900" alt="Олег Иванцов поёт с гитарой на сцене">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">Вокал и гитара</p>
+</div>
+<div class="lightbox" id="ph7" role="dialog" aria-label="Концерт">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/07-koncert-fioletovyy-svet.jpg" width="1600" height="900" alt="Олег Иванцов на сцене в фиолетовом свете">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">Концерт</p>
+</div>
+<div class="lightbox" id="ph8" role="dialog" aria-label="У микрофона">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/08-u-mikrofona.jpg" width="1600" height="900" alt="Олег Иванцов поёт у микрофона на концерте">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">У микрофона</p>
+</div>
+<div class="lightbox" id="ph9" role="dialog" aria-label="Вдвоём на сцене">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/09-vdvoem-na-scene.jpg" width="1600" height="900" alt="Олег Иванцов с гитаристом на сцене">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">Вдвоём на сцене</p>
+</div>
+<div class="lightbox" id="ph10" role="dialog" aria-label="Профиль">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/10-profil.jpg" width="1600" height="900" alt="Олег Иванцов в профиль, съёмка последних лет">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">Профиль</p>
+</div>
+<div class="lightbox" id="ph11" role="dialog" aria-label="В дверном проёме">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/11-v-dvernom-proeme.jpg" width="1600" height="900" alt="Олег Иванцов в дверном проёме старого дома">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">В дверном проёме</p>
+</div>
+<div class="lightbox" id="ph12" role="dialog" aria-label="У стены">
+  <a class="close" href="#photo" aria-label="Закрыть"></a>
+  <img src="photos/12-u-steny.jpg" width="1600" height="900" alt="Олег Иванцов у бетонной стены с табличкой">
+  <a class="x" href="#photo" aria-label="Закрыть">×</a>
+  <p class="cap">У стены</p>
+</div>
 
 </body>
 </html>
