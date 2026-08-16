@@ -199,6 +199,27 @@
   .lightbox .x:hover{background:var(--accent);color:#fff}
   @media (prefers-reduced-motion: reduce){.lightbox{transition:none}.shot a{transition:none}}
 
+  /* ---------- ФОТОГАЛЕРЕЯ ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .gallery a{display:block;border-radius:8px;overflow:hidden;background:var(--panel);box-shadow:var(--ring);
+    aspect-ratio:16/9;text-decoration:none;transition:box-shadow .2s ease-out,scale .2s ease-out}
+  .gallery a:hover{box-shadow:var(--ring-hover);scale:1.015}
+  .gallery img{display:block;width:100%;height:100%;object-fit:cover}
+  .gallery figcaption{display:none}
+  .gallery-more{margin-top:26px;text-align:center}
+  .lb{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(10,9,7,.95);padding:clamp(12px,4vw,48px)}
+  .lb:target{display:grid}
+  .lb img{max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:6px;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .lb figcaption{margin-top:14px;text-align:center;font-family:var(--font-body);font-size:14px;color:var(--muted)}
+  .lb-close,.lb-prev,.lb-next{position:absolute;font-family:var(--font-body);color:var(--text);text-decoration:none;
+    line-height:1;display:grid;place-items:center;border-radius:50%;background:rgba(30,25,38,.92);box-shadow:var(--ring);
+    transition:color .15s,background .15s}
+  .lb-close:hover,.lb-prev:hover,.lb-next:hover{color:var(--accent-soft);background:rgba(30,25,38,1)}
+  .lb-close{top:18px;right:18px;width:46px;height:46px;font-size:26px}
+  .lb-prev,.lb-next{top:50%;translate:0 -50%;width:52px;height:52px;font-size:34px}
+  .lb-prev{left:14px}.lb-next{right:14px}
+  @media(max-width:600px){.lb-prev,.lb-next{width:44px;height:44px;font-size:28px}}
+
   /* ---------- TIMELINE ---------- */
   .timeline{list-style:none;position:relative;margin-top:8px}
   .timeline::before{content:'';position:absolute;inset-inline-start:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent) 0%,var(--line) 30%,var(--line) 100%)}
@@ -291,9 +312,6 @@
         <p>Слушатели сравнивали его с Высоцким и Цоем. Сам Олег к громким словам был равнодушен: не гнался ни за деньгами, ни за славой, работал оператором на ногинском телевидении, грузчиком, звукорежиссёром, позже выучил Python и C++ и писал чат-ботов. Музыка оставалась для него способом, его же словами, «найти общий язык с людьми».</p>
       </div>
     </div>
-    <!-- Место под фотографии: когда будут готовы, поменяйте display:none на flex в .photo-slot
-         и вставьте <img src="..." alt="Олег Иванцов"> внутрь -->
-    <div class="photo-slot">Фотографии Олега – скоро</div>
   </div>
 </section>
 
@@ -353,6 +371,30 @@
         <figcaption>У стены</figcaption>
       </figure>
     </div>
+  </div>
+</section>
+
+
+<!-- ============ ФОТО ============ -->
+<section id="photo">
+  <div class="wrap">
+    <p class="kicker">Фото</p>
+    <h2>Фотографии Олега Иванцова</h2>
+    <div class="gallery">
+        <a href="#01-detstvo-s-roditelyami" aria-label="Открыть фотографию: С родителями"><img src="photos/01-detstvo-s-roditelyami.jpg" alt="Олег Иванцов младенцем на руках у родителей, 1993 год" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#02-detstvo-doma" aria-label="Открыть фотографию: Дома в Старой Купавне"><img src="photos/02-detstvo-doma.jpg" alt="Олег Иванцов в детстве играет дома на ковре" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#03-vdvoem-v-pole" aria-label="Открыть фотографию: Вдвоём в поле"><img src="photos/03-vdvoem-v-pole.jpg" alt="Олег Иванцов с музыкантом в поле, чёрно-белое фото" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#04-kvartet" aria-label="Открыть фотографию: «Квартет имени Достоевского»"><img src="photos/04-kvartet.jpg" alt="Группа «Квартет имени Достоевского» в полном составе" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#05-portret" aria-label="Открыть фотографию: Портрет"><img src="photos/05-portret.jpg" alt="Портрет Олега Иванцова, чёрно-белое фото" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#06-vokal-i-gitara" aria-label="Открыть фотографию: Вокал и гитара"><img src="photos/06-vokal-i-gitara.jpg" alt="Олег Иванцов поёт с гитарой на сцене" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#07-koncert-fioletovyy-svet" aria-label="Открыть фотографию: Концерт"><img src="photos/07-koncert-fioletovyy-svet.jpg" alt="Олег Иванцов на сцене в фиолетовом свете" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#08-u-mikrofona" aria-label="Открыть фотографию: У микрофона"><img src="photos/08-u-mikrofona.jpg" alt="Олег Иванцов поёт у микрофона на концерте" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#09-vdvoem-na-scene" aria-label="Открыть фотографию: Вдвоём на сцене"><img src="photos/09-vdvoem-na-scene.jpg" alt="Олег Иванцов с гитаристом на сцене" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#10-profil" aria-label="Открыть фотографию: Профиль"><img src="photos/10-profil.jpg" alt="Олег Иванцов в профиль, съёмка последних лет" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#11-v-dvernom-proeme" aria-label="Открыть фотографию: В дверном проёме"><img src="photos/11-v-dvernom-proeme.jpg" alt="Олег Иванцов в дверном проёме старого дома" loading="lazy" decoding="async" width="1600" height="900"></a>
+        <a href="#12-u-steny" aria-label="Открыть фотографию: У стены"><img src="photos/12-u-steny.jpg" alt="Олег Иванцов у бетонной стены с табличкой" loading="lazy" decoding="async" width="1600" height="900"></a>
+    </div>
+    <p class="gallery-more"><a class="btn" href="archive.html">Смотреть фото- и видеоархив целиком</a></p>
   </div>
 </section>
 
@@ -502,6 +544,18 @@
   </div>
 </section>
 
+<div class="lb" id="01-detstvo-s-roditelyami"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#12-u-steny" aria-label="Предыдущая">‹</a><a class="lb-next" href="#02-detstvo-doma" aria-label="Следующая">›</a><figure><img src="photos/01-detstvo-s-roditelyami.jpg" alt="Олег Иванцов младенцем на руках у родителей, 1993 год" loading="lazy" width="1600" height="900"><figcaption>С родителями</figcaption></figure></div>
+<div class="lb" id="02-detstvo-doma"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#01-detstvo-s-roditelyami" aria-label="Предыдущая">‹</a><a class="lb-next" href="#03-vdvoem-v-pole" aria-label="Следующая">›</a><figure><img src="photos/02-detstvo-doma.jpg" alt="Олег Иванцов в детстве играет дома на ковре" loading="lazy" width="1600" height="900"><figcaption>Дома в Старой Купавне</figcaption></figure></div>
+<div class="lb" id="03-vdvoem-v-pole"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#02-detstvo-doma" aria-label="Предыдущая">‹</a><a class="lb-next" href="#04-kvartet" aria-label="Следующая">›</a><figure><img src="photos/03-vdvoem-v-pole.jpg" alt="Олег Иванцов с музыкантом в поле, чёрно-белое фото" loading="lazy" width="1600" height="900"><figcaption>Вдвоём в поле</figcaption></figure></div>
+<div class="lb" id="04-kvartet"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#03-vdvoem-v-pole" aria-label="Предыдущая">‹</a><a class="lb-next" href="#05-portret" aria-label="Следующая">›</a><figure><img src="photos/04-kvartet.jpg" alt="Группа «Квартет имени Достоевского» в полном составе" loading="lazy" width="1600" height="900"><figcaption>«Квартет имени Достоевского»</figcaption></figure></div>
+<div class="lb" id="05-portret"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#04-kvartet" aria-label="Предыдущая">‹</a><a class="lb-next" href="#06-vokal-i-gitara" aria-label="Следующая">›</a><figure><img src="photos/05-portret.jpg" alt="Портрет Олега Иванцова, чёрно-белое фото" loading="lazy" width="1600" height="900"><figcaption>Портрет</figcaption></figure></div>
+<div class="lb" id="06-vokal-i-gitara"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#05-portret" aria-label="Предыдущая">‹</a><a class="lb-next" href="#07-koncert-fioletovyy-svet" aria-label="Следующая">›</a><figure><img src="photos/06-vokal-i-gitara.jpg" alt="Олег Иванцов поёт с гитарой на сцене" loading="lazy" width="1600" height="900"><figcaption>Вокал и гитара</figcaption></figure></div>
+<div class="lb" id="07-koncert-fioletovyy-svet"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#06-vokal-i-gitara" aria-label="Предыдущая">‹</a><a class="lb-next" href="#08-u-mikrofona" aria-label="Следующая">›</a><figure><img src="photos/07-koncert-fioletovyy-svet.jpg" alt="Олег Иванцов на сцене в фиолетовом свете" loading="lazy" width="1600" height="900"><figcaption>Концерт</figcaption></figure></div>
+<div class="lb" id="08-u-mikrofona"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#07-koncert-fioletovyy-svet" aria-label="Предыдущая">‹</a><a class="lb-next" href="#09-vdvoem-na-scene" aria-label="Следующая">›</a><figure><img src="photos/08-u-mikrofona.jpg" alt="Олег Иванцов поёт у микрофона на концерте" loading="lazy" width="1600" height="900"><figcaption>У микрофона</figcaption></figure></div>
+<div class="lb" id="09-vdvoem-na-scene"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#08-u-mikrofona" aria-label="Предыдущая">‹</a><a class="lb-next" href="#10-profil" aria-label="Следующая">›</a><figure><img src="photos/09-vdvoem-na-scene.jpg" alt="Олег Иванцов с гитаристом на сцене" loading="lazy" width="1600" height="900"><figcaption>Вдвоём на сцене</figcaption></figure></div>
+<div class="lb" id="10-profil"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#09-vdvoem-na-scene" aria-label="Предыдущая">‹</a><a class="lb-next" href="#11-v-dvernom-proeme" aria-label="Следующая">›</a><figure><img src="photos/10-profil.jpg" alt="Олег Иванцов в профиль, съёмка последних лет" loading="lazy" width="1600" height="900"><figcaption>Профиль</figcaption></figure></div>
+<div class="lb" id="11-v-dvernom-proeme"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#10-profil" aria-label="Предыдущая">‹</a><a class="lb-next" href="#12-u-steny" aria-label="Следующая">›</a><figure><img src="photos/11-v-dvernom-proeme.jpg" alt="Олег Иванцов в дверном проёме старого дома" loading="lazy" width="1600" height="900"><figcaption>В дверном проёме</figcaption></figure></div>
+<div class="lb" id="12-u-steny"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#11-v-dvernom-proeme" aria-label="Предыдущая">‹</a><a class="lb-next" href="#01-detstvo-s-roditelyami" aria-label="Следующая">›</a><figure><img src="photos/12-u-steny.jpg" alt="Олег Иванцов у бетонной стены с табличкой" loading="lazy" width="1600" height="900"><figcaption>У стены</figcaption></figure></div>
 </main>
 
 <footer>
