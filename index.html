@@ -222,6 +222,22 @@
   .lb-prev{left:14px}.lb-next{right:14px}
   @media(max-width:600px){.lb-prev,.lb-next{width:44px;height:44px;font-size:28px}}
 
+  .vhead{font-family:var(--font-display);font-weight:600;font-size:19px;margin:38px 0 14px;color:var(--text)}
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 14px}
+  .vcell{display:block;text-decoration:none;color:var(--text);transition:scale .2s ease-out}
+  .vcell:hover{scale:1.015}
+  .vthumb{position:relative;display:block;border-radius:8px;overflow:hidden;background:var(--panel);box-shadow:var(--ring);aspect-ratio:16/9}
+  .vcell:hover .vthumb{box-shadow:var(--ring-hover)}
+  .vthumb img{display:block;width:100%;height:100%;object-fit:cover}
+  .vlen{position:absolute;right:6px;bottom:6px;background:rgba(12,9,17,.86);color:#fff;font-size:11px;padding:2px 6px;border-radius:4px}
+  .vplay{position:absolute;inset:0;display:grid;place-items:center}
+  .vplay::before{content:"";width:46px;height:46px;border-radius:50%;background:rgba(122,65,196,.86);box-shadow:0 4px 16px rgba(0,0,0,.4);transition:background .2s}
+  .vplay::after{content:"";position:absolute;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff;margin-left:3px}
+  .vcell:hover .vplay::before{background:rgba(165,124,223,.95)}
+  .vtitle{display:block;margin-top:9px;font-size:14px;line-height:1.35;color:var(--text);text-wrap:pretty}
+  .vlb figure{width:min(1000px,100%)}
+  .vframe{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .vframe iframe{display:block;width:100%;height:100%;border:none}
   /* ---------- TIMELINE ---------- */
   .timeline{list-style:none;position:relative;margin-top:8px}
   .timeline::before{content:'';position:absolute;inset-inline-start:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent) 0%,var(--line) 30%,var(--line) 100%)}
@@ -330,8 +346,8 @@
 <!-- ============ ФОТО ============ -->
 <section id="photo">
   <div class="wrap">
-    <p class="kicker">Фото</p>
-    <h2>Олег Иванцов в фотографиях</h2>
+    <p class="kicker">Фото и видео</p>
+    <h2>Олег Иванцов в фотографиях и видео</h2>
     <div class="gallery">
         <a href="#01-detstvo-s-roditelyami" aria-label="Открыть фотографию: С родителями"><img src="photos/01-detstvo-s-roditelyami.jpg" alt="Олег Иванцов младенцем на руках у родителей, 1993 год" loading="lazy" decoding="async" width="1600" height="900"></a>
         <a href="#02-detstvo-doma" aria-label="Открыть фотографию: Дома в Старой Купавне"><img src="photos/02-detstvo-doma.jpg" alt="Олег Иванцов в детстве играет дома на ковре" loading="lazy" decoding="async" width="1600" height="900"></a>
@@ -346,7 +362,14 @@
         <a href="#11-v-dvernom-proeme" aria-label="Открыть фотографию: В дверном проёме"><img src="photos/11-v-dvernom-proeme.jpg" alt="Олег Иванцов в дверном проёме старого дома" loading="lazy" decoding="async" width="1600" height="900"></a>
         <a href="#12-u-steny" aria-label="Открыть фотографию: У стены"><img src="photos/12-u-steny.jpg" alt="Олег Иванцов у бетонной стены с табличкой" loading="lazy" decoding="async" width="1600" height="900"></a>
     </div>
-    <p class="gallery-more"><a class="btn" href="archive.html">Смотреть фото- и видеоархив целиком</a></p>
+    <h3 class="vhead">Видео</h3>
+    <div class="vgrid">
+      <a class="vcell" href="#v-SUCFpstkxq8" aria-label="Смотреть: Квартет им. Достоевского – «Мотыльки»"><span class="vthumb"><img src="archive/yt/SUCFpstkxq8.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"><span class="vlen">6:20</span><span class="vplay" aria-hidden="true"></span></span><span class="vtitle">Квартет им. Достоевского – «Мотыльки»</span></a>
+      <a class="vcell" href="#v-1AC7I7m95V0" aria-label="Смотреть: Квартет им. Достоевского – «Поезд №1»"><span class="vthumb"><img src="archive/yt/1AC7I7m95V0.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"><span class="vlen">5:26</span><span class="vplay" aria-hidden="true"></span></span><span class="vtitle">Квартет им. Достоевского – «Поезд №1»</span></a>
+      <a class="vcell" href="#v-XZ7hFWV9eU0" aria-label="Смотреть: «Электричество» на «Своём радио»"><span class="vthumb"><img src="archive/yt/XZ7hFWV9eU0.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"><span class="vlen">3:07</span><span class="vplay" aria-hidden="true"></span></span><span class="vtitle">«Электричество» на «Своём радио»</span></a>
+    </div>
+
+    <p class="gallery-more"><a class="btn lilac" href="archive.html">Смотреть фото- и видеоархив целиком</a></p>
   </div>
 </section>
 
@@ -521,6 +544,9 @@
 <div class="lb" id="10-profil"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#09-vdvoem-na-scene" aria-label="Предыдущая">‹</a><a class="lb-next" href="#11-v-dvernom-proeme" aria-label="Следующая">›</a><figure><img src="photos/10-profil.jpg" alt="Олег Иванцов в профиль, съёмка последних лет" loading="lazy" width="1600" height="900"><figcaption>Профиль</figcaption></figure></div>
 <div class="lb" id="11-v-dvernom-proeme"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#10-profil" aria-label="Предыдущая">‹</a><a class="lb-next" href="#12-u-steny" aria-label="Следующая">›</a><figure><img src="photos/11-v-dvernom-proeme.jpg" alt="Олег Иванцов в дверном проёме старого дома" loading="lazy" width="1600" height="900"><figcaption>В дверном проёме</figcaption></figure></div>
 <div class="lb" id="12-u-steny"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#11-v-dvernom-proeme" aria-label="Предыдущая">‹</a><a class="lb-next" href="#01-detstvo-s-roditelyami" aria-label="Следующая">›</a><figure><img src="photos/12-u-steny.jpg" alt="Олег Иванцов у бетонной стены с табличкой" loading="lazy" width="1600" height="900"><figcaption>У стены</figcaption></figure></div>
+<div class="lb vlb" id="v-SUCFpstkxq8"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#v-XZ7hFWV9eU0" aria-label="Предыдущее">‹</a><a class="lb-next" href="#v-1AC7I7m95V0" aria-label="Следующее">›</a><figure><div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/SUCFpstkxq8" loading="lazy" title="Квартет им. Достоевского – «Мотыльки»" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Квартет им. Достоевского – «Мотыльки»</figcaption></figure></div>
+<div class="lb vlb" id="v-1AC7I7m95V0"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#v-SUCFpstkxq8" aria-label="Предыдущее">‹</a><a class="lb-next" href="#v-XZ7hFWV9eU0" aria-label="Следующее">›</a><figure><div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/1AC7I7m95V0" loading="lazy" title="Квартет им. Достоевского – «Поезд №1»" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Квартет им. Достоевского – «Поезд №1»</figcaption></figure></div>
+<div class="lb vlb" id="v-XZ7hFWV9eU0"><a class="lb-close" href="#photo" aria-label="Закрыть">×</a><a class="lb-prev" href="#v-1AC7I7m95V0" aria-label="Предыдущее">‹</a><a class="lb-next" href="#v-SUCFpstkxq8" aria-label="Следующее">›</a><figure><div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/XZ7hFWV9eU0" loading="lazy" title="«Электричество» на «Своём радио»" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>«Электричество» на «Своём радио»</figcaption></figure></div>
 </main>
 
 <footer>
